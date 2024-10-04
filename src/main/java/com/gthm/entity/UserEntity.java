@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
+import java.util.List;
 
 @Data
 @AllArgsConstructor
@@ -13,10 +14,11 @@ import java.time.LocalDate;
 @Builder
 public class UserEntity {
 
-    String id;
-    String name;
+    private String id;
+    private String name;
 
-    AddressEntity address;
+    private AddressEntity address;
+    private LocalDate birthday;
+    private List<Country> visitedCountries;
 
-    LocalDate birthday;
 }

@@ -10,6 +10,8 @@ import org.mapstruct.*;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.util.List;
+import java.util.stream.Collectors;
 
 @Mapper(componentModel = "spring")
 public interface UserMapper {
@@ -68,5 +70,12 @@ public interface UserMapper {
     default LocalDate mapLocalDate(LocalDate localDate) {
         return (localDate != null) ? localDate : LocalDate.now().plusYears(2);
     }
+
+//     map list of enums
+default List<Country> mapCountriesEnumToEnum(List<Country> countries) {
+    return countries.stream()
+                    .map(en -> en) // or any other conversion logic
+                    .collect(Collectors.toList());
+}
 
 }

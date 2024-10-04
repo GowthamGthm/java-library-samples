@@ -4,6 +4,8 @@ import com.gthm.entity.Continent;
 import com.gthm.entity.Country;
 import lombok.*;
 
+import java.util.List;
+
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -17,5 +19,6 @@ public class AddressEntityDto  {
 
     private String country;
     private Continent continent;
+
 
 }
