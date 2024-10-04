@@ -14,9 +14,11 @@ import java.time.LocalDate;
 @Mapper(componentModel = "spring")
 public interface UserMapper {
 
+    @Mapping(source = "birthday" , target = "birthday" , qualifiedByName = "mapLocalDateToFutureIfNull")
     @BeanMapping(nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.SET_TO_DEFAULT)
     UserEntity toEntity(UserEntityDto userEntityDto);
 
+    @Mapping(source = "birthday" , target = "birthday" , qualifiedByName = "mapLocalDateToFutureIfNull")
     @BeanMapping(nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.SET_TO_DEFAULT)
     UserEntityDto toDto(UserEntity userEntity);
 
@@ -28,11 +30,6 @@ public interface UserMapper {
     @BeanMapping(nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.SET_TO_DEFAULT)
     AddressEntityDto toDto(AddressEntity addressEntity);
 
-
-    default LocalDate mapLocalDate(LocalDate date) {
-        return date == null ? LocalDate.now()
-                                       .plusYears(10) : date;
-    }
 
     default String mapString(String value) {
         return value == null ? "" : value;
@@ -66,6 +63,10 @@ public interface UserMapper {
         return country != null ? Country.valueOf(country.toUpperCase()) : null;
     }
 
-
+//     default map for LocalDate
+    @Named("mapLocalDateToFutureIfNull")
+    default LocalDate mapLocalDate(LocalDate localDate) {
+        return (localDate != null) ? localDate : LocalDate.now().plusYears(2);
+    }
 
 }
