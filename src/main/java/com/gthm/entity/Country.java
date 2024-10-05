@@ -3,7 +3,7 @@ package com.gthm.entity;
 public enum Country {
 
     INDIA,
-    UAS,
+    USA,
     RUSSIA,
     CHINA,
     ISRAEL,

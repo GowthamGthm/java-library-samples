@@ -1,28 +1,20 @@
-package com.gthm.mapper;
+package com.gthm.mapper.sharedmapper;
 
-import com.gthm.dto.UserEntityDto;
 import com.gthm.entity.Country;
-import com.gthm.entity.UserEntity;
-import org.mapstruct.*;
+import org.mapstruct.Mapper;
+import org.mapstruct.Named;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.List;
 import java.util.stream.Collectors;
 
-@Mapper(componentModel = "spring", uses = {AddressMapper.class})
-public interface UserMapper {
+@Mapper(componentModel = "spring")
+public interface CommonMapper {
 
-    @Mapping(source = "birthday", target = "birthday", qualifiedByName = "mapLocalDateToFutureIfNull")
-    @BeanMapping(nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.SET_TO_DEFAULT)
-    UserEntity toEntity(UserEntityDto userEntityDto);
-
-    @Mapping(source = "birthday", target = "birthday", qualifiedByName = "mapLocalDateToFutureIfNull")
-    @BeanMapping(nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.SET_TO_DEFAULT)
-    UserEntityDto toDto(UserEntity userEntity);
 
     default String mapString(String value) {
-        return value == null ? "" : value;
+        return value == null ? "ABCD" : value;
     }
 
     default Float mapFloat(Float value) {
@@ -65,6 +57,5 @@ public interface UserMapper {
                         .map(en -> en) // or any other conversion logic
                         .collect(Collectors.toList());
     }
-
 
 }
