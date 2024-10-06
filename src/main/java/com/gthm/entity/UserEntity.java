@@ -1,5 +1,6 @@
 package com.gthm.entity;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -18,7 +19,11 @@ public class UserEntity {
     private String name;
 
     private AddressEntity address;
+
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
     private LocalDate birthday;
     private List<Country> visitedCountries;
+
+    private String afterMappingField;
 
 }

@@ -21,6 +21,12 @@ public interface UserMapper {
     @BeanMapping(nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.SET_TO_DEFAULT)
     UserEntityDto toDto(UserEntity userEntity);
 
+    @AfterMapping
+    default UserEntityDto userEntity(@MappingTarget UserEntityDto userEntityDto) {
+        userEntityDto.setAfterMappingField("AFTER-MAPPING");
+        return userEntityDto;
+    }
+
     default String mapString(String value) {
         return value == null ? "" : value;
     }

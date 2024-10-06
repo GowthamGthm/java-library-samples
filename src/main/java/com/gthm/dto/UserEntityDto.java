@@ -1,5 +1,6 @@
 package com.gthm.dto;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.gthm.entity.Country;
 import lombok.*;
 
@@ -17,6 +18,9 @@ public class UserEntityDto implements Serializable {
     private  String name;
     private  AddressEntityDto address;
 
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
     private LocalDate birthday;
     private List<Country> visitedCountries;
+
+    private String afterMappingField;
 }

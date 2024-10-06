@@ -1,6 +1,7 @@
 package com.gthm;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import com.gthm.dto.UserEntityDto;
 import com.gthm.entity.UserEntity;
 import com.gthm.mapper.UserMapper;
@@ -27,16 +28,17 @@ public class GthmApplication  implements CommandLineRunner {
 	@Override
 	public void run(String... args) throws Exception {
 
-//		ObjectMapper mapper = new ObjectMapper();
-//
-//		List<UserEntityDto> list = IntStream.range(0, 10)
-//											.boxed()
-//											.map(e -> Instancio.create(UserEntity.class))
-//											.peek(e -> System.out.println(e))
-//											.map(e -> userMapper.toDto(e))
-//											.toList();
-//
-//		System.out.println(mapper.writeValueAsString(list));
+		ObjectMapper mapper = new ObjectMapper();
+		mapper.registerModule(new JavaTimeModule());
+
+		List<UserEntityDto> list = IntStream.range(0, 10)
+											.boxed()
+											.map(e -> Instancio.create(UserEntity.class))
+											.peek(e -> System.out.println(e))
+											.map(e -> userMapper.toDto(e))
+											.toList();
+
+		System.out.println(mapper.writeValueAsString(list));
 
 	}
 
