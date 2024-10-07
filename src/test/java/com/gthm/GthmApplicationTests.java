@@ -7,6 +7,7 @@ import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import com.gthm.dto.UserEntityDto;
 import com.gthm.entity.UserEntity;
 import com.gthm.mapper.UserMapper;
+import static org.assertj.core.api.Assertions.assertThat;
 import org.instancio.Instancio;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -39,8 +40,9 @@ class GthmApplicationTests {
         UserEntityDto dto = mapper.toDto(userEntity);
         System.out.println(objectMapper.writeValueAsString(dto));
 
-        assert(dto.getId()).equals("");
-        assert(Integer.valueOf(dto.getBirthday().getYear())).equals(LocalDate.now().plusYears(2).getYear());
+        assertThat(Integer.valueOf(dto.getBirthday().getYear())).isEqualTo(LocalDate.now().plusYears(2).getYear());
+        assertThat(dto.getId()).isEmpty();
+
 
     }
 
