@@ -1,7 +1,7 @@
-package com.gthm.mapper.sharedmapper;
+package com.gthm.libraries.mapstruct.sharedmapper;
 
-import com.gthm.dto.UserEntityDto;
-import com.gthm.entity.UserEntity;
+import com.gthm.libraries.mapstruct.dto.UserEntityDto;
+import com.gthm.libraries.mapstruct.entity.UserEntity;
 import org.mapstruct.BeanMapping;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;

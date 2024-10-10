@@ -1,12 +1,12 @@
-package com.gthm.mapper;
+package com.gthm.mapstruct.sharedmapper;
 
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
-import com.gthm.dto.UserEntityDto;
-import com.gthm.entity.UserEntity;
-import com.gthm.mapper.sharedmapper.UserSharedMapper;
+import com.gthm.libraries.mapstruct.dto.UserEntityDto;
+import com.gthm.libraries.mapstruct.entity.UserEntity;
+import com.gthm.libraries.mapstruct.sharedmapper.UserSharedMapper;
 import org.instancio.Instancio;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;

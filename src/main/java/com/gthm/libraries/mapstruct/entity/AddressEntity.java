@@ -1,6 +1,8 @@
-package com.gthm.entity;
+package com.gthm.libraries.mapstruct.entity;
 
 
+import com.gthm.libraries.mapstruct.dto.ContactDetailsDto;
+import com.gthm.libraries.mapstruct.dto.MobileDetailsDto;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -19,5 +21,7 @@ public class AddressEntity {
 
     private Country country;
     private Continent continent;
+
+    private ContactDetailsEntity contactDetailsEntity;
 
 }

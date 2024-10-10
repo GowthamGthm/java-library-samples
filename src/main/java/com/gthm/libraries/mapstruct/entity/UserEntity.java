@@ -1,26 +1,29 @@
-package com.gthm.dto;
+package com.gthm.libraries.mapstruct.entity;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import com.gthm.entity.Country;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
-import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.List;
 
 @Data
-@NoArgsConstructor
 @AllArgsConstructor
+@NoArgsConstructor
 @Builder
-public class UserEntityDto implements Serializable {
+public class UserEntity {
 
-    private  String id;
-    private  String name;
-    private  AddressEntityDto address;
+    private String id;
+    private String name;
+
+    private AddressEntity address;
 
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
     private LocalDate birthday;
     private List<Country> visitedCountries;
 
     private String afterMappingField;
+
 }

@@ -2,9 +2,9 @@ package com.gthm;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
-import com.gthm.dto.UserEntityDto;
-import com.gthm.entity.UserEntity;
-import com.gthm.mapper.UserMapper;
+import com.gthm.libraries.mapstruct.dto.UserEntityDto;
+import com.gthm.libraries.mapstruct.entity.UserEntity;
+import com.gthm.libraries.mapstruct.regularmapper.UserMapper;
 import org.instancio.Instancio;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;

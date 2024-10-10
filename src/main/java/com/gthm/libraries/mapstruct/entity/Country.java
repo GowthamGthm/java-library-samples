@@ -1,4 +1,4 @@
-package com.gthm.entity;
+package com.gthm.libraries.mapstruct.entity;
 
 public enum Country {
 

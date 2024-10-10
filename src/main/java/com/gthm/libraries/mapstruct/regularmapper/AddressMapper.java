@@ -1,9 +1,13 @@
-package com.gthm.mapper;
+package com.gthm.libraries.mapstruct.regularmapper;
 
 
-import com.gthm.dto.AddressEntityDto;
-import com.gthm.entity.AddressEntity;
-import com.gthm.entity.Country;
+import com.gthm.libraries.mapstruct.dto.AddressEntityDto;
+import com.gthm.libraries.mapstruct.dto.ContactDetailsDto;
+import com.gthm.libraries.mapstruct.dto.MobileDetailsDto;
+import com.gthm.libraries.mapstruct.entity.AddressEntity;
+import com.gthm.libraries.mapstruct.entity.ContactDetailsEntity;
+import com.gthm.libraries.mapstruct.entity.Country;
+import com.gthm.libraries.mapstruct.entity.MobileDetailsEntity;
 import org.mapstruct.*;
 
 @Mapper(componentModel = "spring")
@@ -14,8 +18,15 @@ public interface AddressMapper {
     AddressEntity toEntity(AddressEntityDto addressEntityDto);
 
     @Mapping(source = "country", target = "country", qualifiedByName = "mapCountryToString")
+    @Mapping(source = "contactDetailsEntity.mobileDetailsEntity" , target = "contactDetailsDto.mobileDetailsDto")
     @BeanMapping(nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.SET_TO_DEFAULT)
     AddressEntityDto toDto(AddressEntity addressEntity);
+
+    @BeanMapping(nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.SET_TO_DEFAULT)
+    MobileDetailsDto toDto(MobileDetailsEntity mobileDetailsEntity);
+
+    @BeanMapping(nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.SET_TO_DEFAULT)
+    ContactDetailsDto toDto(ContactDetailsEntity contactDetailsEntity);
 
 
     // map ENUM
@@ -28,6 +39,7 @@ public interface AddressMapper {
     default Country mapStringToCountry(String country) {
         return country != null ? Country.valueOf(country.toUpperCase()) : null;
     }
+
 
 
 }

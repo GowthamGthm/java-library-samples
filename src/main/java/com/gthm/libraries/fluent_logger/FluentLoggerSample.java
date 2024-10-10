@@ -1,8 +1,8 @@
-package com.gthm.util;
+package com.gthm.libraries.fluent_logger;
 
 import com.google.common.flogger.FluentLogger;
 import com.google.common.flogger.StackSize;
-import com.gthm.entity.UserEntity;
+import com.gthm.libraries.mapstruct.entity.UserEntity;
 import lombok.extern.slf4j.Slf4j;
 import org.instancio.Instancio;
 
@@ -10,7 +10,7 @@ import java.util.Random;
 import java.util.logging.Level;
 
 @Slf4j
-public class FloggerTest {
+public class FluentLoggerSample {
     static FluentLogger fluentLogger = FluentLogger.forEnclosingClass();
 
     public static void main(String[] args) {

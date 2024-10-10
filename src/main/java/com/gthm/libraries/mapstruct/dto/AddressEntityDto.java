@@ -1,10 +1,9 @@
-package com.gthm.dto;
+package com.gthm.libraries.mapstruct.dto;
 
-import com.gthm.entity.Continent;
-import com.gthm.entity.Country;
+import com.gthm.libraries.mapstruct.entity.ContactDetailsEntity;
+import com.gthm.libraries.mapstruct.entity.Continent;
+import com.gthm.libraries.mapstruct.entity.MobileDetailsEntity;
 import lombok.*;
-
-import java.util.List;
 
 @Data
 @NoArgsConstructor
@@ -19,6 +18,8 @@ public class AddressEntityDto  {
 
     private String country;
     private Continent continent;
+
+    private ContactDetailsDto contactDetailsDto;
 
 
 }
